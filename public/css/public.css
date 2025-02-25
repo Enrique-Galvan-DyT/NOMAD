@@ -1,0 +1,84 @@
+.svg{
+    background-size: cover;
+    filter: invert(1);
+    width: 2rem;
+    height: 2rem;
+    &.map-svg{
+        background-image: url('../multimedia/menu-svg/map.svg');
+    }
+    &.list-svg{
+        background-image: url('../multimedia/menu-svg/list.svg');
+    }
+    &.truck-svg{
+        background-image: url('../multimedia/menu-svg/truck.svg');
+    }
+    &.airplane-svg{
+        background-image: url('../multimedia/menu-svg/airplane.svg');
+    }
+    &.car-svg{
+        background-image: url('../multimedia/menu-svg/car.svg');
+    }
+    &.ship-svg{
+        background-image: url('../multimedia/menu-svg/ship.svg');
+    }
+    &.train-svg{
+        background-image: url('../multimedia/menu-svg/train.svg');
+    }
+    &.route-svg{
+        background-image: url('../multimedia/menu-svg/route.svg');
+    }
+    &.pin-add-svg{
+        background-image: url('../multimedia/menu-svg/pin-add.svg');
+    }
+    &.layers-svg{
+        background-image: url('../multimedia/menu-svg/layers.svg');
+    }
+}
+.dropdown-toggle::after{
+    align-self: center;
+}
+.offcanvas-body{
+    display: flex;
+    flex-flow: column;
+    & ul.navbar-nav{
+        display: block;
+    }   
+}
+.offcanvas.offcanvas-end{
+    align-items: unset;
+}
+.side-menu,.navbar-brand,.nav-link{
+    filter: brightness(.5);
+    &:not(.nav-link){
+        filter: brightness(1);
+    }
+    
+    transition: filter .2s ease-in, border-width .2s ease-in;
+    &.active{
+        filter: brightness(1);
+    }
+    & .svg{
+        
+        &.map-svg{
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}
+@media (min-width: 992px) {
+    .offcanvas-body{
+        display: unset;
+        flex-flow: unset;
+        & ul.navbar-nav{
+            display: flex;
+        }      
+    }
+    .offcanvas.offcanvas-end{
+        align-items: flex-end;
+    }
+    .navbar-brand,.nav-link{
+        & .svg{
+        width: 1.1rem;
+        }
+    }
+}

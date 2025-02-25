@@ -1,0 +1,92 @@
+<!-- Side Bar List Menu Start -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasSideMenu" aria-labelledby="offcanvasSideMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title border-bottom pb-2 d-flex" id="offcanvasSideMenuLabel">
+            <div class="svg list-svg me-2"></div>
+            <div>List Routes</div>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            Select a route and see the information about it.
+        </div>
+        <div class="mt-4">
+            <ol class="list-group list-group-numbered rounded-0">
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white border-0 border-left border-white">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold mb-2">
+                        <a href="#" class="text-decoration-none text-black bg-info px-2 py-1">Subheading</a>
+                    </div>
+                    Content for list item
+                  </div>
+                  <span class="badge text-bg-primary rounded-0">14 km</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white border-0 border-left border-white">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold mb-2">
+                          <a href="#" class="text-decoration-none text-black bg-info px-2 py-1">Subheading</a>
+                      </div>
+                      Content for list item
+                    </div>
+                    <span class="badge text-bg-primary rounded-0">14 km</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white border-0 border-left border-white">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold mb-2">
+                          <a href="#" class="text-decoration-none text-black bg-info px-2 py-1">Subheading</a>
+                      </div>
+                      Content for list item
+                    </div>
+                    <span class="badge text-bg-primary rounded-0">14 km</span>
+                  </li>
+              </ol>
+        </div>
+    </div>
+</div>
+<!-- Side Bar List Menu End -->
+
+<!-- Side Bar Add Menu Start -->
+<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasAddMenu" aria-labelledby="offcanvasAddMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title border-bottom pb-2 d-flex" id="offcanvasAddMenuLabel">
+            <div class="svg layers-svg me-2"></div>
+            <div>Add Routes</div>
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            Click the "Start capture" button and start to capture coordinates, when you finish, click the "Set on map" button to set that new route on the map.
+        </div>
+        <div class="mt-4">
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control rounded-0" id="title" placeholder="title name">
+                    <label class="text-black-50" for="title">Set title</label>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <div class="form-floating mb-3 col-4">
+                        <select class="form-select rounded-0" id="type" aria-label="Select type">
+                          <option value="car" selected>Car</option>
+                          <option value="truck">Truck</option>
+                          <option value="train">Train</option>
+                          <option value="ship">Ship</option>
+                          <option value="airplane">Airplane</option>
+                        </select>
+                        <label class="text-black-50" for="type">Select type</label>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input type="color" class="form-control rounded-0" id="color" value="#a400f0" placeholder="Select color">
+                        <label class="text-black-50" for="color">Select color</label>
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-info rounded-0 map-controls startAddingPoints" type="button">Start capture</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Side Bar Add Menu End -->

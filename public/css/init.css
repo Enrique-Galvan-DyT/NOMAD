@@ -1,0 +1,38 @@
+#nomad-nav-menu{
+    height: 10vh;
+    & > .navbar{
+        height: inherit;
+    }
+}
+#nomad-layers-menu{
+    position: absolute;
+    bottom: 0vh;
+    left: 0;
+    z-index: 4;
+    justify-self: anchor-center;
+    height: 8vh;
+    transition: bottom .2s ease-out;
+    &.controls-active{
+        bottom: 8vh;
+    }
+    p{
+        display: none;
+    }
+}
+@media (min-width: 768px) {
+    #nomad-layers-menu{
+        p{
+            display: unset;
+        }
+    }    
+}
+
+.title-name{
+    background-color: rgb(33 37 41 / 90%);
+    padding: 1rem;
+    h1,h2,h3,h4,h5{
+        background: var(--bs-cyan);
+        color: black;
+        padding: .5rem 1rem;
+    }
+}
