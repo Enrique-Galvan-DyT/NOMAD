@@ -11,19 +11,173 @@ let dummyList = [
     // 🚆 Rutas de tren (vía ferroviaria de Reynosa)
     {title: "Vía Reynosa - Matamoros", dots: [[26.0500, -98.3000],[26.0000, -98.3500]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
     {title: "Vía Reynosa - Monterrey", dots: [[26.1100, -98.2500],[26.1800, -98.2200]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
+    // 🚆 Rutas de tren adicionales
+    {title: "Vía Nuevo Laredo - Monterrey", dots: [[27.5000, -99.5167],[26.5000, -99.0000],[25.6866, -100.3161]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
+    {title: "Vía Piedras Negras - Monclova", dots: [[28.7000, -100.5230],[27.8000, -100.2000],[26.9000, -100.1500]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
+    {title: "Vía Mexicali - Nogales", dots: [[32.6400, -115.4800],[32.0000, -114.5000],[31.3322, -110.9381]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
+    {title: "Vía Coatzacoalcos - Mérida", dots: [[18.1500, -94.4167],[18.5000, -91.0000],[19.0000, -89.0000],[20.9671, -89.6237]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
+    {title: "Vía Tapachula - Ciudad Hidalgo", dots: [[14.9000, -92.2667],[14.6800, -92.1500]], type: "train", lineConfig: {color: 'brown', opacity: 0.7, weight: 5}, icon: ''},
+
 
     // ✈ Rutas de vuelos desde el Aeropuerto Internacional de Reynosa
-    {title: "Vuelo a Ciudad de México", dots: [[26.0080, -98.2300], [19.4361, -99.0719]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
-    {title: "Vuelo a Guadalajara", dots: [[26.0080, -98.2300], [20.6668, -103.3918]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
-    {title: "Vuelo a Cancún", dots: [[26.0080, -98.2300], [21.1619, -86.8515]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
-    {title: "Vuelo a Veracruz", dots: [[26.0080, -98.2300], [19.1738, -96.1342]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
-    {title: "Vuelo a Ciudad de México (AIFA)", dots: [[26.0080, -98.2300], [19.5944, -99.2276]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo a Ciudad de México", dots: [[26.0080, -98.2300], [19.4361, -99.0719]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo a Guadalajara", dots: [[26.0080, -98.2300], [20.6668, -103.3918]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo a Cancún", dots: [[26.0080, -98.2300], [21.1619, -86.8515]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo a Veracruz", dots: [[26.0080, -98.2300], [19.1738, -96.1342]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo a Ciudad de México (AIFA)", dots: [[26.0080, -98.2300], [19.5944, -99.2276]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   
+   // Nuevas rutas de vuelos desde otros aeropuertos de México
+   {title: "Vuelo AICM a Monterrey", dots: [[19.4361, -99.0719], [25.7781, -100.1075]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo AICM a Guadalajara", dots: [[19.4361, -99.0719], [20.5214, -103.3110]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Guadalajara a Tijuana", dots: [[20.5214, -103.3110], [32.5411, -116.97]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Cancún a Ciudad de México", dots: [[21.0365, -86.8772], [19.4361, -99.0719]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Monterrey a Hermosillo", dots: [[25.7781, -100.1075], [29.0959, -111.0074]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Tijuana a Los Cabos", dots: [[32.5411, -116.97], [23.0721, -109.6333]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Querétaro a Mérida", dots: [[20.6181, -100.6850], [20.9373, -89.6571]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Puebla a Toluca", dots: [[19.1325, -98.4490], [19.3373, -99.5512]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Los Cabos a Puerto Vallarta", dots: [[23.0721, -109.6333], [20.6800, -105.2536]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Vuelo Veracruz a Villahermosa", dots: [[19.2288, -96.1342], [17.9889, -92.9444]], type: "airplane", lineConfig: {color: 'purple', opacity: 0.7, weight: 5}, icon: ''},
+   
+   
+      // 🚢 Rutas marítimas
+   // Observa que agregamos más puntos intermedios para dar forma curva
+   {title: "Transporte a Puerto Matamoros", dots: [[26.0000, -98.3500],[25.8627, -97.5080]], type: "ship", lineConfig: {color: 'navy', opacity: 0.7, weight: 5}, icon: ''},
+   {title: "Transporte a Puerto Tampico", dots: [[26.0000, -98.3500],[22.2553, -97.8400]], type: "ship", lineConfig: {color: 'navy', opacity: 0.7, weight: 5}, icon: ''},
 
-    // 🚢 Rutas marítimas (considerando conexión al puerto más cercano, como Matamoros o Tampico)
-    {title: "Transporte a Puerto Matamoros", dots: [[26.0000, -98.3500],[25.8627, -97.5080]], type: "ship", lineConfig: {color: 'navy', opacity: 0.7, weight: 5}, icon: ''},
-    {title: "Transporte a Puerto Tampico", dots: [[26.0000, -98.3500],[22.2553, -97.8400]], type: "ship", lineConfig: {color: 'navy', opacity: 0.7, weight: 5}, icon: ''}
+// Nuevas rutas marítimas internacionales que salen de puertos importantes de México
+{
+    title: "Ruta Veracruz - Miami",
+    type: "ship",
+    lineConfig: {color: 'teal', opacity: 0.7, weight: 5},
+    dots: [
+      [19.1830, -96.1342],  // Veracruz
+      [19.5, -94.0],        // Punto intermedio 1
+      [20.5, -92.0],        // Punto intermedio 2
+      [22.0, -90.0],        // Punto intermedio 3
+      [25.7617, -80.1918]   // Miami
+    ]
+  },
+  {
+    title: "Ruta Altamira - New Orleans",
+    type: "ship",
+    lineConfig: {color: 'darkblue', opacity: 0.7, weight: 5},
+    dots: [
+      [22.6300, -97.9000],  // Altamira (aprox.)
+      [23.5, -96.0],        // Punto intermedio 1
+      [25.0, -94.0],        // Punto intermedio 2
+      [27.0, -92.5],        // Punto intermedio 3
+      [29.9511, -90.0715]   // New Orleans
+    ]
+  },
+  {
+    title: "Ruta Manzanillo - Los Angeles",
+    type: "ship",
+    lineConfig: {color: 'darkred', opacity: 0.7, weight: 5},
+    dots: [
+      [19.0510, -104.3350], // Manzanillo (aprox.)
+      [21.0, -106.0],       // Punto intermedio 1
+      [24.0, -110.0],       // Punto intermedio 2
+      [28.0, -114.0],       // Punto intermedio 3
+      [34.0522, -118.2437]   // Los Angeles
+    ]
+  },
+  {
+    title: "Ruta Lázaro Cárdenas - Long Beach",
+    type: "ship",
+    lineConfig: {color: 'darkgreen', opacity: 0.7, weight: 5},
+    dots: [
+      [17.9000, -102.2000], // Lázaro Cárdenas (aprox.)
+      [20.0, -105.0],       // Punto intermedio 1
+      [25.0, -110.0],       // Punto intermedio 2
+      [30.0, -115.0],       // Punto intermedio 3
+      [33.7701, -118.1937]   // Long Beach
+    ]
+  },
+  {
+    title: "Ruta Ensenada - San Francisco",
+    type: "ship",
+    lineConfig: {color: 'orange', opacity: 0.7, weight: 5},
+    dots: [
+      [31.8667, -116.6167], // Ensenada
+      [33.0, -118.0],       // Punto intermedio 1
+      [35.0, -120.0],       // Punto intermedio 2
+      [37.7749, -122.4194]   // San Francisco
+    ]
+  },
+  {
+    title: "Ruta Progreso - Havana",
+    type: "ship",
+    lineConfig: {color: 'brown', opacity: 0.7, weight: 5},
+    dots: [
+      [21.3000, -89.6000],  // Progreso (aprox.)
+      [21.5, -88.0],        // Punto intermedio 1
+      [22.5, -85.0],        // Punto intermedio 2
+      [23.1136, -82.3666]   // La Habana
+    ]
+  },
+  {
+    title: "Ruta Guaymas - San Diego",
+    type: "ship",
+    lineConfig: {color: 'slateblue', opacity: 0.7, weight: 5},
+    dots: [
+      [27.9333, -110.9333], // Guaymas (aprox.)
+      [29.0, -112.0],       // Punto intermedio 1
+      [31.0, -115.0],       // Punto intermedio 2
+      [32.7157, -117.1611]   // San Diego
+    ]
+  },
+  {
+  title: "Ruta Veracruz - Cartagena (Costeando Yucatán)",
+  type: "ship",
+  lineConfig: { color: 'magenta', opacity: 0.7, weight: 5 },
+  dots: [
+    [19.1830, -96.1342],   // Puerto de Veracruz
+    [18.5, -94.5],         // Cerca de Coatzacoalcos (sur de Veracruz)
+    [18.2, -92.8],         // Aproximación a Tabasco
+    [18.2, -91.5],         // Suroeste de Campeche
+    [19.0, -90.3],         // Cercano a la costa suroeste de Yucatán
+    [20.0, -89.3],         // Costa oeste de Yucatán
+    [20.8, -88.2],         // Rumbo hacia Progreso (norte de Yucatán)
+    [21.3, -87.6],         // Cerca de Cancún (Quintana Roo)
+    [20.4, -86.9],         // Próximo a Cozumel
+    [19.0, -86.0],         // Cerca de Tulum / Riviera Maya
+    [18.0, -85.0],         // Frontera con Belice
+    [16.0, -84.0],         // Zona caribeña frente a Honduras
+    [14.0, -82.0],         // Cercano a Nicaragua
+    [12.0, -80.0],         // Rumbo al Caribe colombiano
+    [10.3910, -75.4794]    // Cartagena, Colombia
+  ]
+  },
+    {
+    title: "Ruta Lázaro Cárdenas - Valparaíso",
+    type: "ship",
+    lineConfig: {color: 'indigo', opacity: 0.7, weight: 5},
+    dots: [
+      [17.9000, -102.2000], // Lázaro Cárdenas
+      [10.0, -100.0],       // Punto intermedio 1
+      [0.0, -90.0],         // Punto intermedio 2
+      [-10.0, -80.0],       // Punto intermedio 3
+      [-20.0, -75.0],       // Punto intermedio 4
+      [-30.0, -73.0],       // Punto intermedio 5
+      [-33.0472, -71.6127]   // Valparaíso, Chile
+    ]
+  },
+  {
+    title: "Ruta Ensenada - Vancouver",
+    type: "ship",
+    lineConfig: {color: 'coral', opacity: 0.7, weight: 5},
+    dots: [
+      [31.8667, -116.6167], // Ensenada
+      [34.0, -120.0],       // Punto intermedio 1
+      [38.0, -122.0],       // Punto intermedio 2
+      [43.0, -124.0],       // Punto intermedio 3
+      [49.2827, -123.1207]   // Vancouver, Canadá
+    ]
+  }
 ];
+
 console.log('%cApplying Configuration to Leaflet Map', 'background: cyan; color: black; padding: 4px;')
+
 // Crear capas base
 let baseLayers = {
     "Mapa Estándar": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -39,47 +193,48 @@ let baseLayers = {
 };
 
 let arrayAllowedRoutes = ["car", "truck"], arrayAllowedPolylines = ["ship", "airplane"];
-let informationList = []    // Almacena la información general de las rutas del mapa
-let mapLayers = []          // Almacena las rutas existentes en el mapa
-let tempPoints = [];        // Almacena los puntos seleccionados
-let tempMarkers = [];       // Almacena los marcadores temporales
-let drawingMode = false;    // Controla si se pueden agregar puntos
+let informationList = [];    // Almacena la información general de las rutas del mapa
+let mapLayers = [];          // Almacena las rutas existentes en el mapa
+let tempPoints = [];         // Almacena los puntos seleccionados
+let tempMarkers = [];        // Almacena los marcadores temporales
+let drawingMode = false;     // Controla si se pueden agregar puntos
+
 function initializeMap() {
-    
+
     // Inicializar el mapa centrado en Reynosa, México
     var map = L.map('map', {
         center: [26.0080, -98.2300], // Coordenadas de Reynosa
         zoom: 12,
         layers: [baseLayers["Mapa Estándar"]] // Capa inicial
     }).setView([26.0923, -98.2770], 13);
-    
+
     // Agregar control de capas
     L.control.layers(baseLayers).addTo(map);
-    
+
     var LeafIcon = L.Icon.extend({
         options: {
-            iconSize: [94, 69],  // Tamaño original
-            iconAnchor: [47, 69],  // La mitad del ancho, altura total
-            popupAnchor: [0, -69],  // Arriba del ícono
+            iconSize: [94, 69],   // Tamaño original
+            iconAnchor: [47, 69], // La mitad del ancho, altura total
+            popupAnchor: [0, -69] // Arriba del ícono
         }
     });
-    var greenIcon   =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-greenn.png'}),
-    redIcon         =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-redd.png'}),
-    purpleIcon      =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-purplee.png'}),
-    cyanIcon        =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-cyann.png'}),
-    orangeIcon      =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-orangee.png'});
-    
-    // Agregar capa de mapa base
+    var greenIcon   = new LeafIcon({iconUrl: 'public/multimedia/pin/marker-greenn.png'}),
+        redIcon     = new LeafIcon({iconUrl: 'public/multimedia/pin/marker-redd.png'}),
+        purpleIcon  = new LeafIcon({iconUrl: 'public/multimedia/pin/marker-purplee.png'}),
+        cyanIcon    = new LeafIcon({iconUrl: 'public/multimedia/pin/marker-cyann.png'}),
+        orangeIcon  = new LeafIcon({iconUrl: 'public/multimedia/pin/marker-orangee.png'});
+
+    // Capa adicional (puedes quitarla si no la necesitas)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors and Enrique Galván'
     }).addTo(map);
-    
+
     function addRoute(base = {title, dots: [], type, lineConfig: {color: 'blue', opacity: 0.7, weight: 5}}) {
         let routeControl;
         switch (base.type) {
             case "car":
             case "truck":
-                // Agregar la ruta al mapa
+                // Agregar la ruta al mapa con OSRM
                 routeControl = L.Routing.control({
                     waypoints: [base.dots[0], base.dots[1]],
                     routeWhileDragging: false,
@@ -88,7 +243,6 @@ function initializeMap() {
                         serviceUrl: 'https://router.project-osrm.org/route/v1'
                     }),
                     createMarker: function(i, waypoint, n) {
-                        
                         var marker = L.marker(waypoint.latLng, {
                             icon: base.type == "car" ? redIcon : purpleIcon,
                             draggable: true
@@ -99,78 +253,96 @@ function initializeMap() {
                         styles: [base.lineConfig]
                     }
                 }).addTo(map);
-                obtainInfoFromRoutes(base, routeControl)
-                
-                mapLayers.push(routeControl)
-            break;
-    
+                obtainInfoFromRoutes(base, routeControl);
+                mapLayers.push(routeControl);
+                break;
+
             case "ship":
-            case "airplane":
-                // ✈ 🚢 Para aviones y barcos → Usar línea recta (polyline)
-                // Definir el icono personalizado fuera de la función para reutilizarlo
-    
-                let polyline = L.polyline(base.dots, {
+                // Rutas marítimas con varios puntos intermedios para "curvar" la línea
+                let polylineShip = L.polyline(base.dots, {
                     color: base.lineConfig.color,
                     opacity: base.lineConfig.opacity,
                     weight: base.lineConfig.weight,
-                    dashArray: "5, 10" // Línea punteada para indicar ruta aérea, marítima o trenes
+                    smoothFactor: 1.5, // Suavizado (aunque con puntos intermedios se nota más la curva)
+                    dashArray: "5, 10"
                 }).addTo(map);
-                obtainInfoFromRoutes(base, polyline)
-                
-                mapLayers.push(polyline)
-            break;
+                polylineShip.bindPopup(base.title);
+                obtainInfoFromRoutes(base, polylineShip);
+                mapLayers.push(polylineShip);
+                break;
+
+            case "airplane":
+                // Rutas aéreas
+                let polylineAir = L.polyline(base.dots, {
+                    color: base.lineConfig.color,
+                    opacity: base.lineConfig.opacity,
+                    weight: base.lineConfig.weight,
+                    dashArray: "5, 10"
+                }).addTo(map);
+                obtainInfoFromRoutes(base, polylineAir);
+                mapLayers.push(polylineAir);
+                break;
+                //se agrega caso "train" para que se muestre la ruta del tren que no estaba 
+            case "train":
+                let polylineTrain = L.polyline(base.dots, {
+                    color: base.lineConfig.color,
+                    opacity: base.lineConfig.opacity,
+                    weight: base.lineConfig.weight,
+                    dashArray: "5, 10"
+                }).addTo(map);
+                obtainInfoFromRoutes(base, polylineTrain);
+                mapLayers.push(polylineTrain);
+                break;
         }
     }
-    
+
     // Función para limpiar el mapa
     function cleanMap(type) {
         console.log("Eliminando rutas del tipo:", type);
-        
+
         // Eliminar rutas del mapa (tanto OSRM como polylines)
         mapLayers = mapLayers.filter(layer => {
             let isOSRMLayer = layer._routes?.[0]?.name;
             let isPolyline = layer instanceof L.Polyline; // Detectar si es una polyline
-    
-            let match = informationList.some(itemList => 
-                itemList.type === type && 
+
+            let match = informationList.some(itemList =>
+                itemList.type === type &&
                 (isOSRMLayer ? layer._routes[0].name === itemList.originalDescription : isPolyline)
             );
-    
+
             if (match) {
                 if (isOSRMLayer) {
                     map.removeControl(layer); // Eliminar rutas OSRM
                 } else {
-                    map.removeLayer(layer); // Eliminar polylines (airplane, ship)
+                    map.removeLayer(layer); // Eliminar polylines
                 }
             }
-    
             return !match; // Mantener solo las rutas que NO coincidan
         });
-    
+
         // Eliminar elementos coincidentes en informationList
         informationList = informationList.filter(item => item.type !== type);
-    
         console.log("Rutas eliminadas correctamente.");
     }
-    
+
     function setMarksByType(type) {
-        hideControlsMenu()
+        hideControlsMenu();
         dummyList.filter(item => item.type === type).forEach(route => {
-            console.log(type + ' route added')
-            addRoute(route)
-        }); 
-        hideDefaultInfo()
+            console.log(type + ' route added');
+            addRoute(route);
+        });
+        hideDefaultInfo();
     }
-    
+
     function hideDefaultInfo() {
-        //Ocultar rutas pero no la selección de mapa
-        let divs = document.querySelectorAll('.leaflet-routing-container')
-        console.log(divs)
+        // Ocultar rutas pero no la selección de mapa
+        let divs = document.querySelectorAll('.leaflet-routing-container');
+        console.log(divs);
         divs.forEach(infoTab => {
-            infoTab.classList.add('d-none')
+            infoTab.classList.add('d-none');
         });
     }
-    
+
     function obtainInfoFromRoutes(base, routeControl) {
         if (arrayAllowedRoutes.includes(base.type)) {
             // 🛣 Para rutas terrestres (OSRM)
@@ -182,104 +354,100 @@ function initializeMap() {
                     type: base.type,
                     description: route.name.split(',').join(" con destino a")
                 });
-    
                 console.log("Ruta agregada:", base.title, "Descripción:", route.name);
             });
-    
         } else if (arrayAllowedPolylines.includes(base.type)) {
-            // ✈ 🚢 Para rutas de aviones y barcos (líneas rectas con polyline)
-            let description = `Ruta directa de ${base.title} (${base.origin} → ${base.destiny})`;
-            
+            // ✈ 🚢 Para rutas de aviones y barcos
+            let description = `Ruta directa de ${base.title}`;
             informationList.push({
                 title: base.title ? base.title : "NA",
                 originalDescription: description,
                 type: base.type,
                 description: description
             });
-    
             console.log("Ruta agregada:", base.title, "Descripción:", description);
         }
     }
-    
-    document.querySelectorAll('.side-menu li a').forEach(a => {
-        a.addEventListener('click', function () {  
-            let type = a.querySelector('p').innerText.toLowerCase()
+
+    // Eventos para tu menú lateral (ajusta a tu HTML/CSS si difiere)
+    document.querySelectorAll('.side-menu li a')?.forEach(a => {
+        a.addEventListener('click', function () {
+            let type = a.querySelector('p').innerText.toLowerCase();
             if (!a.classList.contains('active')) {
-                cleanMap(type)
+                cleanMap(type);
+            } else {
+                setMarksByType(type);
+                hideDefaultInfo();
             }
-            else{
-                setMarksByType(type)
-                hideDefaultInfo()
-            }
-        })
+        });
     });
-    document.querySelectorAll('.map-controls').forEach(btn => {
-        btn.addEventListener('click', function () {  
+
+    document.querySelectorAll('.map-controls')?.forEach(btn => {
+        btn.addEventListener('click', function () {
             if (this.classList.contains('startAddingPoints')) {
-                startAddingPoints(this)
+                startAddingPoints(this);
+            } else if (this.classList.contains('finishDrawing')) {
+                finishDrawing();
+            } else if (this.classList.contains('cancelCoordsCapture')) {
+                cancelCoordsCapture();
             }
-            else if (this.classList.contains('finishDrawing')){
-                finishDrawing()
-            }
-            else if (this.classList.contains('cancelCoordsCapture')){
-                cancelCoordsCapture()
-            }
-        })
+        });
     });
+
     // Función para activar la selección de puntos
     function startAddingPoints(btn) {
-        btn.closest('.offcanvas').querySelector('.btn-close').click()
-        showControlsMenu()
+        btn.closest('.offcanvas').querySelector('.btn-close').click();
+        showControlsMenu();
         drawingMode = true;
         tempPoints = [];  // Reiniciar puntos
         tempMarkers.forEach(marker => map.removeLayer(marker)); // Limpiar marcadores anteriores
         tempMarkers = [];
         console.log("Modo de selección activado: Haz clic en el mapa para agregar puntos.");
-    
+
         map.on("click", addPointToMap);
     }
-    
+
     // Función para agregar puntos al mapa
     function addPointToMap(event) {
         if (!drawingMode) return;
-    
+
         let { lat, lng } = event.latlng;
         tempPoints.push([lat, lng]); // Guardar coordenada
-        
+
         // Agregar marcador visual y almacenarlo
         let marker = L.marker([lat, lng]).addTo(map)
             .bindPopup(`Punto ${tempPoints.length}: (${lat.toFixed(4)}, ${lng.toFixed(4)})`)
             .openPopup();
         tempMarkers.push(marker);
-    
+
         console.log("Punto agregado:", lat, lng);
-        if (arrayAllowedRoutes.includes(document.getElementById("type").value) && 
+        // Si es ruta OSRM y ya tenemos 2 puntos, finalizamos
+        if (arrayAllowedRoutes.includes(document.getElementById("type")?.value) &&
             tempPoints.length == 2) {
-            finishDrawing()
+            finishDrawing();
         }
     }
-    
+
     // Función para finalizar la selección y trazar la ruta
     function finishDrawing() {
         if (!drawingMode || tempPoints.length < 2) {
             console.log("Debes agregar al menos dos puntos antes de finalizar.");
             return;
         }
-        
-        hideControlsMenu()        
-    
-        drawingMode = false; 
+
+        hideControlsMenu();
+        drawingMode = false;
         map.off("click", addPointToMap); // Remover evento de clic
-    
+
         // Eliminar marcadores temporales del mapa
         tempMarkers.forEach(marker => map.removeLayer(marker));
         tempMarkers = [];
-    
+
         // Obtener valores del formulario
-        let title = document.getElementById("title").value.trim() || "Nueva Ruta";
-        let type = document.getElementById("type").value;
-        let color = document.getElementById("color").value;
-    
+        let title = document.getElementById("title")?.value.trim() || "Nueva Ruta";
+        let type = document.getElementById("type")?.value;
+        let color = document.getElementById("color")?.value;
+
         // Crear el nuevo objeto de ruta
         let newRoute = {
             title: title,
@@ -287,40 +455,36 @@ function initializeMap() {
             type: type,
             lineConfig: { color: color, opacity: 0.7, weight: 5 }
         };
-    
+
         console.log("Nueva ruta creada:", newRoute);
-    
+
         // Enviar el nuevo objeto a addRoute para mostrarlo en el mapa
-        dummyList.push(newRoute)
+        dummyList.push(newRoute);
         addRoute(newRoute);
-        hideDefaultInfo()
+        hideDefaultInfo();
     }
-    
-    function cancelCoordsCapture(map, markers) {
-        hideControlsMenu()
-        if (!map || !markers || markers.length === 0) return;
+
+    function cancelCoordsCapture() {
+        hideControlsMenu();
+        if (!map || !tempMarkers || tempMarkers.length === 0) return;
         // Eliminar cada marcador del mapa
-        markers.forEach(marker => {
+        tempMarkers.forEach(marker => {
             map.removeLayer(marker);
         });
-        
         // Vaciar la lista de marcadores
-        markers.length = 0;
-        
+        tempMarkers = [];
         console.log("Selección de marcas cancelada y eliminadas del mapa.");
     }
-    
-    // Función para mover el marcador en la ruta
+
+    // Función para mover el marcador en la ruta (opcional)
     function moveMarker(marker, routeCoords, speed) {
         let index = 0;
-        
         function animateMarker() {
             if (index < routeCoords.length - 1) {
                 let start = routeCoords[index];
                 let end = routeCoords[index + 1];
                 let steps = 100;  // Cuántos pasos en la animación
                 let step = 0;
-    
                 let interval = setInterval(() => {
                     if (step >= steps) {
                         clearInterval(interval);
@@ -335,20 +499,34 @@ function initializeMap() {
                 }, speed);
             }
         }
-        
         animateMarker();
     }
-    
+
     function hideControlsMenu() {
-        $('#nomad-layers-menu .controls-submenu').slideUp();
-        setTimeout(()=>{
-            document.querySelector('#nomad-layers-menu').classList.remove('controls-active')
-        },500)  
+        // Ajusta según tu HTML real
+        let submenu = document.querySelector('#nomad-layers-menu .controls-submenu');
+        if (submenu) {
+            $(submenu).slideUp();
+            setTimeout(() => {
+                document.querySelector('#nomad-layers-menu')?.classList.remove('controls-active');
+            }, 500);
+        }
     }
+
     function showControlsMenu() {
-        document.querySelector('#nomad-layers-menu').classList.add('controls-active')
-        setTimeout(()=>{
-            $('#nomad-layers-menu .controls-submenu').slideDown();
-        },200)
+        // Ajusta según tu HTML real
+        let menu = document.querySelector('#nomad-layers-menu');
+        if (menu) {
+            menu.classList.add('controls-active');
+            setTimeout(() => {
+                let submenu = menu.querySelector('.controls-submenu');
+                if (submenu) $(submenu).slideDown();
+            }, 200);
+        }
     }
+
+    // Para inicializar las rutas (ejemplo):
+    // setMarksByType('ship');  // Muestra rutas de barcos
+    // setMarksByType('airplane');  // Muestra rutas de aviones
 }
+
