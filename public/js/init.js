@@ -1,11 +1,17 @@
-console.log('%cAdding Navbar Menu', 'background: cyan; color: black; padding: 4px;')
-loadViewAsync('modules/navbar', 'nomad-nav-menu')
+async function initializeApp() {
+    await loadViewAsync('modules/navbar', 'nomad-nav-menu');
 
-console.log('%cAdding Side Menu', 'background: cyan; color: black; padding: 4px;')
-loadViewAsync('modules/side-menu', 'nomad-side-menu')
+    await loadViewAsync('leaflet/map', 'leaflet-map')
 
-console.log('%cAdding Layers Menu', 'background: cyan; color: black; padding: 4px;')
-loadViewAsync('modules/layers-menu', 'nomad-layers-menu')
+    await loadViewAsync('modules/side-menu', 'nomad-side-menu');
+
+    await loadViewAsync('modules/layers-menu', 'nomad-layers-menu');
+
+    
+    initializeMap()
+}
+
+initializeApp()
 
 function setActive(svg) {
     changeActiveStatus(svg)
@@ -15,10 +21,7 @@ function setActive(svg) {
             changeActiveStatus(svg)
         }, 1000)
     }
-    //console.log(svg)
-    //$(svg).toggle('active');
 }
-
 function changeActiveStatus(e) {
     e.classList.toggle('active');
     e.classList.toggle('border-1');

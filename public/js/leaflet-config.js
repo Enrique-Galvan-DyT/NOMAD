@@ -1,5 +1,3 @@
-loadViewAsync('leaflet/map', 'leaflet-map')
-
 // Definir puntos de ejemplo en Reynosa
 let dummyList = [
     // 🚗 Rutas para autos
@@ -25,7 +23,7 @@ let dummyList = [
     {title: "Transporte a Puerto Matamoros", dots: [[26.0000, -98.3500],[25.8627, -97.5080]], type: "ship", lineConfig: {color: 'navy', opacity: 0.7, weight: 5}, icon: ''},
     {title: "Transporte a Puerto Tampico", dots: [[26.0000, -98.3500],[22.2553, -97.8400]], type: "ship", lineConfig: {color: 'navy', opacity: 0.7, weight: 5}, icon: ''}
 ];
-
+console.log('%cApplying Configuration to Leaflet Map', 'background: cyan; color: black; padding: 4px;')
 // Crear capas base
 let baseLayers = {
     "Mapa Estándar": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -46,9 +44,7 @@ let mapLayers = []          // Almacena las rutas existentes en el mapa
 let tempPoints = [];        // Almacena los puntos seleccionados
 let tempMarkers = [];       // Almacena los marcadores temporales
 let drawingMode = false;    // Controla si se pueden agregar puntos
-
-setTimeout(()=>{
-    console.log('%cApplying Configuration to Leaflet Map', 'background: cyan; color: black; padding: 4px;')
+function initializeMap() {
     
     // Inicializar el mapa centrado en Reynosa, México
     var map = L.map('map', {
@@ -56,10 +52,10 @@ setTimeout(()=>{
         zoom: 12,
         layers: [baseLayers["Mapa Estándar"]] // Capa inicial
     }).setView([26.0923, -98.2770], 13);
-
+    
     // Agregar control de capas
     L.control.layers(baseLayers).addTo(map);
-
+    
     var LeafIcon = L.Icon.extend({
         options: {
             iconSize: [94, 69],  // Tamaño original
@@ -67,12 +63,12 @@ setTimeout(()=>{
             popupAnchor: [0, -69],  // Arriba del ícono
         }
     });
-    var greenIcon   =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-green.png'}),
-    redIcon         =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-red.png'}),
-    cyanIcon        =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-cyan'}),
-    purpleIcon      =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-purple'}),
-    orangeIcon      =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-orange'});
-
+    var greenIcon   =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-greenn.png'}),
+    redIcon         =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-redd.png'}),
+    purpleIcon      =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-purplee.png'}),
+    cyanIcon        =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-cyann.png'}),
+    orangeIcon      =   new LeafIcon({iconUrl: 'public/multimedia/pin/marker-orangee.png'});
+    
     // Agregar capa de mapa base
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors and Enrique Galván'
@@ -94,7 +90,7 @@ setTimeout(()=>{
                     createMarker: function(i, waypoint, n) {
                         
                         var marker = L.marker(waypoint.latLng, {
-                            icon: redIcon,
+                            icon: base.type == "car" ? redIcon : purpleIcon,
                             draggable: true
                         });
                         return marker.bindPopup(i === 0 ? "Origen" : "Destino");
@@ -107,12 +103,12 @@ setTimeout(()=>{
                 
                 mapLayers.push(routeControl)
             break;
-
+    
             case "ship":
             case "airplane":
                 // ✈ 🚢 Para aviones y barcos → Usar línea recta (polyline)
                 // Definir el icono personalizado fuera de la función para reutilizarlo
-
+    
                 let polyline = L.polyline(base.dots, {
                     color: base.lineConfig.color,
                     opacity: base.lineConfig.opacity,
@@ -142,12 +138,12 @@ setTimeout(()=>{
     
             if (match) {
                 if (isOSRMLayer) {
-                    map.removeLayer(layer); // Eliminar rutas OSRM
+                    map.removeControl(layer); // Eliminar rutas OSRM
                 } else {
                     map.removeLayer(layer); // Eliminar polylines (airplane, ship)
                 }
             }
-
+    
             return !match; // Mantener solo las rutas que NO coincidan
         });
     
@@ -165,16 +161,16 @@ setTimeout(()=>{
         }); 
         hideDefaultInfo()
     }
-
+    
     function hideDefaultInfo() {
         //Ocultar rutas pero no la selección de mapa
-        let divs = document.querySelectorAll('.leaflet-routing-container.leaflet-bar.leaflet-control')
+        let divs = document.querySelectorAll('.leaflet-routing-container')
         console.log(divs)
         divs.forEach(infoTab => {
-            //infoTab.classList.add('d-none')
+            infoTab.classList.add('d-none')
         });
     }
-
+    
     function obtainInfoFromRoutes(base, routeControl) {
         if (arrayAllowedRoutes.includes(base.type)) {
             // 🛣 Para rutas terrestres (OSRM)
@@ -213,7 +209,7 @@ setTimeout(()=>{
             }
             else{
                 setMarksByType(type)
-                document.querySelector('.leaflet-top.leaflet-right').innerHTML = ""
+                hideDefaultInfo()
             }
         })
     });
@@ -230,7 +226,6 @@ setTimeout(()=>{
             }
         })
     });
-
     // Función para activar la selección de puntos
     function startAddingPoints(btn) {
         btn.closest('.offcanvas').querySelector('.btn-close').click()
@@ -240,14 +235,14 @@ setTimeout(()=>{
         tempMarkers.forEach(marker => map.removeLayer(marker)); // Limpiar marcadores anteriores
         tempMarkers = [];
         console.log("Modo de selección activado: Haz clic en el mapa para agregar puntos.");
-
+    
         map.on("click", addPointToMap);
     }
-
+    
     // Función para agregar puntos al mapa
     function addPointToMap(event) {
         if (!drawingMode) return;
-
+    
         let { lat, lng } = event.latlng;
         tempPoints.push([lat, lng]); // Guardar coordenada
         
@@ -256,14 +251,14 @@ setTimeout(()=>{
             .bindPopup(`Punto ${tempPoints.length}: (${lat.toFixed(4)}, ${lng.toFixed(4)})`)
             .openPopup();
         tempMarkers.push(marker);
-
+    
         console.log("Punto agregado:", lat, lng);
         if (arrayAllowedRoutes.includes(document.getElementById("type").value) && 
             tempPoints.length == 2) {
             finishDrawing()
         }
     }
-
+    
     // Función para finalizar la selección y trazar la ruta
     function finishDrawing() {
         if (!drawingMode || tempPoints.length < 2) {
@@ -272,19 +267,19 @@ setTimeout(()=>{
         }
         
         hideControlsMenu()        
-
+    
         drawingMode = false; 
         map.off("click", addPointToMap); // Remover evento de clic
-
+    
         // Eliminar marcadores temporales del mapa
         tempMarkers.forEach(marker => map.removeLayer(marker));
         tempMarkers = [];
-
+    
         // Obtener valores del formulario
         let title = document.getElementById("title").value.trim() || "Nueva Ruta";
         let type = document.getElementById("type").value;
         let color = document.getElementById("color").value;
-
+    
         // Crear el nuevo objeto de ruta
         let newRoute = {
             title: title,
@@ -292,9 +287,9 @@ setTimeout(()=>{
             type: type,
             lineConfig: { color: color, opacity: 0.7, weight: 5 }
         };
-
+    
         console.log("Nueva ruta creada:", newRoute);
-
+    
         // Enviar el nuevo objeto a addRoute para mostrarlo en el mapa
         dummyList.push(newRoute)
         addRoute(newRoute);
@@ -314,7 +309,7 @@ setTimeout(()=>{
         
         console.log("Selección de marcas cancelada y eliminadas del mapa.");
     }
-
+    
     // Función para mover el marcador en la ruta
     function moveMarker(marker, routeCoords, speed) {
         let index = 0;
@@ -325,7 +320,7 @@ setTimeout(()=>{
                 let end = routeCoords[index + 1];
                 let steps = 100;  // Cuántos pasos en la animación
                 let step = 0;
-
+    
                 let interval = setInterval(() => {
                     if (step >= steps) {
                         clearInterval(interval);
@@ -343,7 +338,7 @@ setTimeout(()=>{
         
         animateMarker();
     }
-
+    
     function hideControlsMenu() {
         $('#nomad-layers-menu .controls-submenu').slideUp();
         setTimeout(()=>{
@@ -356,4 +351,4 @@ setTimeout(()=>{
             $('#nomad-layers-menu .controls-submenu').slideDown();
         },200)
     }
-}, 1000)
+}

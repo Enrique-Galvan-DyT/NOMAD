@@ -31,9 +31,13 @@
         background-image: url('../multimedia/menu-svg/pin-add.svg');
     }
     &.layers-svg{
-        background-image: url('../multimedia/menu-svg/layers.svg');
+        background-image: url('../multimedia/menu-svg/layers.svg') !important;
+    }
+    &.pin-plus-svg{
+        background-image: url('../multimedia/menu-svg/pin-plus.svg');
     }
 }
+
 .dropdown-toggle::after{
     align-self: center;
 }
