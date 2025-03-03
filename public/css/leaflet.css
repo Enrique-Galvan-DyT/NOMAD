@@ -6,7 +6,22 @@
     top: 10vh;
     z-index: 1;
     #map { 
-        height: 90vh; 
+        height: 90vh;
+        
+        img.leaflet-interactive:not(.leaflet-marker-draggable){
+            &[alt="Marker"][src="car-icon.png"]{
+                transition: 3s cubic-bezier(0.4, 0, 1, 1) transform;
+            }
+            &[alt="Marker"][src="ship-icon.png"]{
+                transition: 30s linear transform;
+            }
+            &[alt="Marker"][src="airplane-icon.png"]{
+                transition: 10s linear transform;
+            }
+            &[alt="Marker"][src="train-icon.png"]{
+                transition: 20s linear transform;
+            }
+        }
         .leaflet-control-container{
             height: inherit;
             .leaflet-top.leaflet-right{
@@ -39,6 +54,9 @@
                 border-radius: 0;
                 a{
                     border-radius: 0;
+                }
+                &:nth-child(n+1){
+                    display: none;
                 }
             }
             .leaflet-control{
