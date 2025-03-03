@@ -225,9 +225,7 @@ function initializeMap() {
         orangeIcon  = new LeafIcon({iconUrl: 'public/multimedia/pin/marker-orangee.png'});
 
     // Capa adicional (puedes quitarla si no la necesitas)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors and Enrique Galván'
-    }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     function addRoute(base = {title, dots: [], type, lineConfig: {color: 'blue', opacity: 0.7, weight: 5}}) {
         let routeControl;
@@ -243,8 +241,13 @@ function initializeMap() {
                         serviceUrl: 'https://router.project-osrm.org/route/v1'
                     }),
                     createMarker: function(i, waypoint, n) {
+                        /*
                         var marker = L.marker(waypoint.latLng, {
                             icon: base.type == "car" ? redIcon : purpleIcon,
+                            draggable: true
+                        });
+                        */
+                        var marker = L.marker(waypoint.latLng, {
                             draggable: true
                         });
                         return marker.bindPopup(i === 0 ? "Origen" : "Destino");
@@ -252,7 +255,19 @@ function initializeMap() {
                     lineOptions: {
                         styles: [base.lineConfig]
                     }
-                }).addTo(map);
+                }).addTo(map).on("routesfound", function(e) {
+                    //console.log(e)
+                    //console.log(e.target._altContainer)
+                    e.routes[0].name = e.routes[0].name.split(', ').join(' towards ')
+                    // Mover el contenedor al sidebar una vez generado
+                    let routingContainer = document.querySelector(".leaflet-routing-container");
+                    //console.log(routingContainer)
+                    //routingContainer.className = "p-2 fs-5";
+                    //routingContainer.parentElement.classList.add('leaflet-routes-custom');
+                    document.getElementById("infoTable").appendChild(routingContainer);
+                    let table = document.getElementById("infoTable")
+                    //console.log(table.querySelectorAll('.leaflet-routing-alt > h2'))
+                });
                 obtainInfoFromRoutes(base, routeControl);
                 mapLayers.push(routeControl);
                 break;
@@ -339,7 +354,8 @@ function initializeMap() {
         let divs = document.querySelectorAll('.leaflet-routing-container');
         console.log(divs);
         divs.forEach(infoTab => {
-            infoTab.classList.add('d-none');
+            infoTab.classList.add('shadow-none');
+            //console.log(infoTab.querySelector("h2"))    
         });
     }
 

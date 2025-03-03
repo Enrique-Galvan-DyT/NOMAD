@@ -11,36 +11,8 @@
         <div>
             Select a route and see the information about it.
         </div>
-        <div class="mt-4">
-            <ol class="list-group list-group-numbered rounded-0">
-                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white border-0 border-left border-white">
-                  <div class="ms-2 me-auto">
-                    <div class="fw-bold mb-2">
-                        <a href="#" class="text-decoration-none text-black bg-info px-2 py-1">Subheading</a>
-                    </div>
-                    Content for list item
-                  </div>
-                  <span class="badge text-bg-primary rounded-0">14 km</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white border-0 border-left border-white">
-                    <div class="ms-2 me-auto">
-                      <div class="fw-bold mb-2">
-                          <a href="#" class="text-decoration-none text-black bg-info px-2 py-1">Subheading</a>
-                      </div>
-                      Content for list item
-                    </div>
-                    <span class="badge text-bg-primary rounded-0">14 km</span>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white border-0 border-left border-white">
-                    <div class="ms-2 me-auto">
-                      <div class="fw-bold mb-2">
-                          <a href="#" class="text-decoration-none text-black bg-info px-2 py-1">Subheading</a>
-                      </div>
-                      Content for list item
-                    </div>
-                    <span class="badge text-bg-primary rounded-0">14 km</span>
-                  </li>
-              </ol>
+        <div class="mt-4" id="infoTable">
+            
         </div>
     </div>
 </div>
@@ -90,3 +62,34 @@
     </div>
 </div>
 <!-- Side Bar Add Menu End -->
+
+<script>
+    let observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                console.log(node)
+                if (node.nodeType === 1) { // Verifica que sea un nodo de tipo elemento
+                    node.querySelectorAll(".leaflet-routing-alt h2").forEach(h2 => {
+                        h2.parentElement.querySelectorAll('table').forEach(table => {
+                            if(table.style.display === ""){
+                                table.style.display = 'none'
+                            }
+                        });
+                        
+                        if (!$(h2).data("evento-agregado")) { // Evita la duplicación del evento
+                            $(h2).on("click", function() {
+                                console.log("Clic en:", this);
+                                let table = this.parentElement.querySelector('table')
+                                table.style.display == "none" ? $(this.parentElement.querySelector('table')).fadeIn() : $(this.parentElement.querySelector('table')).fadeOut()
+                            }).data("evento-agregado", true); // Marcar que el evento ya fue agregado
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+    // Observar el contenedor de rutas para detectar cambios
+    observer.observe(document.getElementById("infoTable"), { childList: true, subtree: true });
+
+</script>
