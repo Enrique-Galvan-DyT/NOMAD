@@ -281,10 +281,15 @@ function initializeMap() {
                         /*
                         var marker = L.marker(waypoint.latLng, {
                             icon: base.type == "car" ? redIcon : purpleIcon,
+                            
                             draggable: true
                         });
                         */
                         var marker = L.marker(waypoint.latLng, {
+                            icon: L.icon({
+                            iconUrl: i === 0 ? "public/multimedia/pin/start-marker-icon-png.png" : "public/multimedia/pin/destiny-marker-icon-png.png",
+                            iconSize: [35, 57.4],
+                            iconAnchor: [15, 30],}),
                             draggable: true
                         });
                         return marker.bindPopup(i === 0 ? "Origen" : "Destino");
@@ -485,7 +490,15 @@ function initializeMap() {
         tempPoints.push([lat, lng]); // Guardar coordenada
 
         // Agregar marcador visual y almacenarlo
-        let marker = L.marker([lat, lng]).addTo(map)
+        let marker = L.marker([lat, lng], 
+            {
+                icon: L.icon({
+                    iconUrl: "public/multimedia/pin/marker-icon-png.png",
+                    iconSize: [35, 57.4],
+                    iconAnchor: [15, 30]
+                })
+            }
+        ).addTo(map)
             .bindPopup(`Punto ${tempPoints.length}: (${lat.toFixed(4)}, ${lng.toFixed(4)})`)
             .openPopup();
         tempMarkers.push(marker);
@@ -575,17 +588,16 @@ function initializeMap() {
     function moveMarkerAlongRoute(routeCoordinates, map, type) {
         if (!routeCoordinates || routeCoordinates.length < 2) return;
     
-        let iconUrl = type === "car" ? "car-icon.png" :
-                      type === "truck" ? "truck-icon.png" :
-                      type === "train" ? "train-icon.png" :
-                      type === "ship" ? "ship-icon.png" :
-                      type === "airplane" ? "airplane-icon.png" : "default-icon.png";
-    
+        let iconUrl = type === "car" ? "public/multimedia/pin/car-icon-png.png" :
+                      type === "truck" ? "public/multimedia/pin/truck-icon-png.png" :
+                      type === "train" ? "public/multimedia/pin/train-icon-png.png" :
+                      type === "ship" ? "public/multimedia/pin/ship-icon-png.png" :
+                      type === "airplane" ? "public/multimedia/pin/airplane-icon-png.png" : "default-icon.png";
         let movingMarker = L.marker(routeCoordinates[0], {
             icon: L.icon({
                 iconUrl: iconUrl,
-                iconSize: [30, 30],
-                iconAnchor: [15, 15]
+                iconSize: [35, 57.4],
+                iconAnchor: [15, 30]
             })
         }).addTo(map);
     

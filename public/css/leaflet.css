@@ -9,16 +9,19 @@
         height: 90vh;
         
         img.leaflet-interactive:not(.leaflet-marker-draggable){
-            &[alt="Marker"][src="car-icon.png"]{
+            &[alt="Marker"][src="public/multimedia/pin/car-icon-png.png"]{
                 transition: 3s cubic-bezier(0.4, 0, 1, 1) transform;
             }
-            &[alt="Marker"][src="ship-icon.png"]{
+            &[alt="Marker"][src="public/multimedia/pin/truck-icon-png.png"]{
+                transition: 3s cubic-bezier(0.4, 0, 1, 1) transform;
+            }
+            &[alt="Marker"][src="public/multimedia/pin/ship-icon-png.png"]{
                 transition: 30s linear transform;
             }
-            &[alt="Marker"][src="airplane-icon.png"]{
+            &[alt="Marker"][src="public/multimedia/pin/airplane-icon-png.png"]{
                 transition: 10s linear transform;
             }
-            &[alt="Marker"][src="train-icon.png"]{
+            &[alt="Marker"][src="public/multimedia/pin/train-icon-png.png"]{
                 transition: 20s linear transform;
             }
         }
@@ -55,7 +58,7 @@
                 a{
                     border-radius: 0;
                 }
-                &:nth-child(n+1){
+                &:nth-child(n+2){
                     display: none;
                 }
             }
